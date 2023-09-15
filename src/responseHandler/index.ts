@@ -1,4 +1,4 @@
-//import { MysqlError } from 'mysql';
+import { MysqlError } from 'mysql';
 import { Result, ValidationError } from 'express-validator';
 import { Response, Request } from 'express';
 
@@ -25,7 +25,7 @@ const messagePrinter = (
   return `${providedMessage ? providedMessage : defaultMessage}|`;
 };
 
-/*
+
 export const dbErrorHandler = (
   req: Request,
   res: Response,
@@ -40,7 +40,7 @@ export const dbErrorHandler = (
 
   res.status(500).send(dbErrorMessage);
 };
-*/
+
 
 export const successHandler = (
   req: Request,
