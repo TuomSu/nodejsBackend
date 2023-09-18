@@ -48,10 +48,37 @@ import {
       .bail(),
   ];
 
+  export const validateId = [
+    check('id')
+      .isLength({ min: 1, max: 5 })    
+      .withMessage('Id Must be between 1-5 characters long')
+      .bail()
+      .matches(/^[0-9]+$/)
+      .withMessage('Must be a number')
+      .bail()
+      .notEmpty()
+      .withMessage('Cannot be empty')
+      .bail(),
+  ];
+
+
   export const validateNameObl = [
     check('name')
       .isLength({ min: 2, max: 5 })
       .withMessage('Must be between 2-5 characters long')
+      .bail()
+      .matches(/^[A-Za-zäöåÄÖÅ0-9\s-]*$/)
+      .withMessage('Must contain only letters, numbers and -')
+      .bail()
+      .notEmpty()
+      .withMessage('Cannot be empty')
+      .bail(),
+  ];
+
+  export const validateName = [
+    check('name')
+      .isLength({ min: 2, max: 25 })
+      .withMessage('Must be between 2-25 characters long')
       .bail()
       .matches(/^[A-Za-zäöåÄÖÅ0-9\s-]*$/)
       .withMessage('Must contain only letters, numbers and -')
